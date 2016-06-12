@@ -1,0 +1,77 @@
+<html>
+
+<head>
+<title>Data Science Capstone Project: Milestone Report</title>
+</head>
+
+<body>
+
+<p>This is the Coursera Data Science Capstone Project Milestone Report HTML submission for Matt Gross.</p>
+
+<p> This report will provide the following 3 items:</p>
+
+<p>1. Basic Summaries of the three files: blogs, news, and twitter.</p>
+<p>2. Basic plots (e.g. histograms) to illustrate features of the data.</p>
+<p>3. Prediction algorithm plans summary.</p>
+
+<h1>1. Basic Summaries of the three files: blogs, news, and twitter.</h1>
+
+The following are basic summaries of the three files:
+
+<h3>BLOGS</h3>
+
+Word count: 37,334,114
+Line count: 899,288
+
+<h3>NEWS</h3>
+Word count: 34,365,936
+Line count: 1,010,242
+
+<h3>TWITTER</h3>
+Word count: 30,359,804
+Line count: 2,360,148
+
+
+<h1>2. Basic plots (e.g. histograms) to illustrate features of the data.</h1>
+
+The following are basic plots of the three files:
+
+<h3>BLOGS</h3>
+<!--begin.rcode
+library(ggplot2)
+library(wordcloud)
+blogs <- read.csv("E:\\Documents\\Coursera\\DataScienceCapstoneProject\\en_US.blogs-usort-c.txt",header=FALSE,sep=" ")
+names(blogs) <- c("freq","word")
+b <- head(blogs,20)
+ggplot(b,aes(y=freq,x=word)) + geom_bar(stat="identity")
+wordcloud(blogs$word,blogs$freq,min.freq=10000)
+end.rcode-->
+
+<h3>NEWS</h3>
+<!--begin.rcode
+news <- read.csv("E:\\Documents\\Coursera\\DataScienceCapstoneProject\\en_US.news-usort-c.txt",header=FALSE,sep=" ")
+names(news) <- c("freq","word")
+n <- head(news,20)
+ggplot(n,aes(y=freq,x=word)) + geom_bar(stat="identity")
+wordcloud(news$word,news$freq,min.freq=10000)
+end.rcode-->
+
+<h3>TWITTER</h3>
+<!--begin.rcode
+twitter <- read.csv("E:\\Documents\\Coursera\\DataScienceCapstoneProject\\en_US.twitter-usort-c.txt",header=FALSE,sep=" ")
+names(twitter) <- c("freq","word")
+t <- head(twitter,20)
+ggplot(t,aes(y=freq,x=word)) + geom_bar(stat="identity")
+wordcloud(twitter$word,twitter$freq,min.freq=10000)
+end.rcode-->
+
+
+
+<h1>3. Prediction algorithm plans summary.</h1>
+
+The prediction algorithm will be based on two parts. (1) using the n-grams method the model will predict the next stem word to be typed based on the prior 2 (or 3, still to be determined) words using a Markov chain probability, then, (2) given the most likely stem word to be typed, what is the most likely word to fit the current phrase (e.g. ending with -s, -ing, -ful, -tion, etc.).
+
+
+</body>
+</html>
+

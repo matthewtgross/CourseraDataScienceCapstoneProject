@@ -1,24 +1,108 @@
 ## Coursera Data Science Capstone Project Exploratory Data Analysys
 
+# set folder locations
+
 # load en_US data
 save_wd <- getwd()
 
 # set current working directory
+setwd("/home/matt/git/CourseraDataScienceCapstoneProject/final")
 #setwd("E:\\Documents\\Coursera\\DataScienceCapstoneProject\\Coursera-SwiftKey\\final\\en_US")
-setwd("E:\\Documents\\Coursera\\DataScienceCapstoneProject\\Coursera-SwiftKey\\final")
+#setwd("E:\\Documents\\Coursera\\DataScienceCapstoneProject\\Coursera-SwiftKey\\final")
 #setwd("E:\\Documents\\Coursera\\DataScienceCapstoneProject\\Coursera-SwiftKey\\final\\en_US")
 #setwd("C:\\Users\\v-matgro\\Downloads\\Coursera-SwiftKey\\final\\en_US")
 #setwd("C:\\Users\\v-matgro\\Downloads\\Coursera-SwiftKey\\final")
 
-# load libraries
-library(tm)
-library(wordnet)
-setDict("C:/Program Files (x86)/WordNet/2.1/dict")
+# Before we begin, this doc will serve as a source for all notes and links to complete all weeks of this project.
+
+
+# Resources on Natural Language Processing:
+# - Natural language processing Wikipedia page: https://en.wikipedia.org/wiki/Natural_language_processing
+# - Text Mining infrastructure in R: https://www.jstatsoft.org/article/view/v025i05
+# - CRAN Task View: Natural Language Processing: https://cran.r-project.org/web/views/NaturalLanguageProcessing.html
+# - Coursera course on NLP (not in R): https://www.coursera.org/course/nlp
+
+# Dataset
+# Capstone Dataset: https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip
+# Dataset README: http://www.corpora.heliohost.org/aboutcorpus.html
+
+
+
+
+## Week 1
+
+# Additional resources on tm
+# News fror package 'tm' 
+# Changes in tm version 0.6-2
+# URL: https://cran.r-project.org/web/packages/tm/news.html
+
+
+
+## Week 2
+
+## Week 3
+
+## Week 4
+
+## Week 5
+
+## Week 6
+
+## Week 7
+
+
+# Recommended tm (and related) libraries
+library(boilerpipeR)
+library(corpora)
+library(gsubfn)
+library(kernlab)
+library(KoNLP)
+library(koRpus)
+library(languageR)
+library(lda)
+library(lsa)
+library(maxent)
+library(movMF)
 library(openNLP)
-library(SnowballC)
+library(qdap)
+#library(RcmdrPlugin.temis) # install failed
+library(RKEA)
+library(RTextTools)
 library(RWeka)
+library(skmeans)
+library(SnowballC)
+library(stringi)
+library(tau)
+library(textcat)
+library(textir)
+library(textreuse)
+library(tm)
+library(tm.plugin.alceste)
+library(tm.plugin.dc)
+library(tm.plugin.europresse)
+library(tm.plugin.factiva)
+library(tm.plugin.lexisnexis)
+library(tm.plugin.mail)
+library(tm.plugin.webmining)
+#library(topicmodels) # failed to install
 library(wordcloud)
+library(wordnet)
+#Note: to get wordnet to load correctly had to add the following to .bashrc file: export WNHOME=/usr/share/wordnet-3.0/
+library(zipfR)
+
+
+
+# load libraries
+#library(tm)
+#library(openNLP)
+#library(SnowballC)
+#library(RWeka)
+#library(wordcloud)
 library(ggplot2)
+
+## Not sure we need to use wordnet yet.  Commenting out.
+#library(wordnet)
+#setDict("C:/Program Files (x86)/WordNet/2.1/dict")
 
 # load data
 #txt <- system.file("texts","txt",package="tm")

@@ -6,7 +6,8 @@
 save_wd <- getwd()
 
 # set current working directory
-setwd("/home/matt/git/CourseraDataScienceCapstoneProject/final")
+#setwd("/home/matt/git/CourseraDataScienceCapstoneProject/final")
+setwd("/home/matt/git/CourseraDataScienceCapstoneProject/test")
 #setwd("E:\\Documents\\Coursera\\DataScienceCapstoneProject\\Coursera-SwiftKey\\final\\en_US")
 #setwd("E:\\Documents\\Coursera\\DataScienceCapstoneProject\\Coursera-SwiftKey\\final")
 #setwd("E:\\Documents\\Coursera\\DataScienceCapstoneProject\\Coursera-SwiftKey\\final\\en_US")
@@ -133,8 +134,19 @@ b <- tm_map(b, removeWords, stopwords("english"))
 b <- tm_map(b, stemDocument, language = "english")
 b <- tm_map(b, PlainTextDocument)
 
-bdtm <-DocumentTermMatrix(b) 
+#bdtm <-DocumentTermMatrix(b) 
+bdtm <-DocumentTermMatrix(b, control=list(wordLengths=c(3, 30), bounds = list(global = c(3,3))))
 bdtm <- removeSparseTerms(bdtm, 0.75)
+
+#inspect(bdtm[1:3,1:100])
+#freq <- colSums(as.matrix(bdtm))
+#freq
+freq <- colSums(as.matrix(bdtm))
+ord <- order(freq,decreasing=TRUE)
+freq[head(ord)]
+freq[tail(ord)]
+
+findFreqTerms(bdtm,lowfreq=6)
 
 summary(b)
 

@@ -28,6 +28,29 @@ setwd("/home/matt/git/CourseraDataScienceCapstoneProject/test")
 # Dataset README: http://www.corpora.heliohost.org/aboutcorpus.html
 
 
+# More resources:
+# https://www.kaggle.com/c/yelp-recruiting/forums/t/4803/text-analysis-dealing-with-memory-errors-due-to-the-large-corpus
+# http://stackoverflow.com/questions/27393728/text-mining-with-r-package-tm-idf-for-a-large-corpus
+# https://www.kaggle.com/c/job-salary-prediction/forums/t/4076/large-scale-text-mining-in-r/33781
+# http://stackoverflow.com/questions/16287546/trying-to-remove-words-from-a-documenttermmatrix-in-order-to-use-topicmodels
+# http://stackoverflow.com/questions/13366897/r-documenttermmatrix-control-list-not-working-silently-ignores-unknown-paramete/13370840#13370840
+# http://stackoverflow.com/questions/25330753/more-efficient-means-of-creating-a-corpus-and-dtm
+# (good) https://eight2late.wordpress.com/2015/05/27/a-gentle-introduction-to-text-mining-using-r/
+# (bigram) https://en.wikipedia.org/wiki/Bigram
+# (good) https://rstudio-pubs-static.s3.amazonaws.com/31867_8236987cf0a8444e962ccd2aec46d9c3.html
+# https://deltadna.com/blog/text-mining-in-r-for-term-frequency/
+# http://stackoverflow.com/questions/30435054/how-to-show-corpus-text-in-r-tm-package
+# http://www.rdatamining.com/examples/text-mining
+# (good) http://www.rdatamining.com/examples/text-mining
+
+# PDF Resources on the web
+# http://handsondatascience.com/TextMiningO.pdf
+
+# stringi
+# http://gastonsanchez.com/Handling_and_Processing_Strings_in_R.pdf
+
+
+
 
 
 ## Week 1
@@ -128,8 +151,8 @@ b <-  Corpus(DirSource(bDir),readerControl = list(reader = readPlain, language =
 b <- tm_map(b, removeNumbers)
 b <- tm_map(b, removePunctuation)
 b <- tm_map(b, stripWhitespace)
+b <- tm_map(b, function(i) iconv(i, "latin1", "ASCII", sub=""))
 b <- tm_map(b, tolower)
-
 b <- tm_map(b, removeWords, stopwords("english"))
 b <- tm_map(b, stemDocument, language = "english")
 b <- tm_map(b, PlainTextDocument)
